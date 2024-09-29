@@ -6,5 +6,5 @@
 | **category** | type: subject <br> subject: dw <br> semester: 2024.1 <br> course: cstrc <br> campus: ifpb-jp |
 | **tags**    | html, css, javascript                                                                           |
 | **owners**  | 20222380017, 20222380024, 20211380027                                                            |
-| **preview** | ![Preview](https://raw.githubusercontent.com/MateusEDSS/Projeto-Dw/refs/heads/main/public/front/images/image.png) |
+| **preview** | ![Preview](https://raw.githubusercontent.com/MateusEDSS/Projeto-Dw/main/public/front/images/image.png) |
 

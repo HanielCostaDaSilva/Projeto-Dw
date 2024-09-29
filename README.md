@@ -8,6 +8,22 @@
 * Ramon Lucas :man:
 * Júlio Cézar :boy:
 
+## Estrutura do Projeto
+
+/projeto-raiz
+  ├── /node_modules       # Módulos e dependências do Node.js gerenciados automaticamente
+  ├── /public             # Contém os arquivos de front-end (HTML, CSS, JS, imagens)
+  │     ├── /html         # Arquivos HTML que representam as páginas da aplicação
+  │     ├── /css          # Arquivos de estilo (CSS) para estilizar as páginas
+  │     ├── /js           # Scripts JavaScript para manipulação de front-end
+  │     ├── /images       # Imagens utilizadas no front-end
+  ├── /src                # Diretório de código-fonte do back-end
+  │     ├── /database     # Scripts relacionados ao banco de dados, incluindo seeders
+  │     └── express.mjs   # Arquivo principal que configura o servidor Express.js
+  ├── package.json        # Arquivo de dependências e scripts NPM
+  └── package-lock.json   # Arquivo gerado automaticamente para bloquear as versões dos pacotes
+![alt text](./public/front/images/image.png)
+
 ## Descrição do Projeto:
 Este projeto visa desenvolver um site para a pesquisa de endereços MAC. O sistema permitirá aos usuários buscar informações sobre o fabricante associado a um endereço MAC específico. Além disso, os usuários poderão se logar no sistema e salvar um histórico de suas buscas para futuras referências.
 
@@ -15,6 +31,19 @@ Este projeto visa desenvolver um site para a pesquisa de endereços MAC. O siste
 - **Pesquisa de Endereços MAC**: Permite aos usuários procurar informações sobre fabricantes baseando-se no endereço MAC inserido.
 - **Login de Usuários**: Sistema de autenticação para que os usuários possam acessar suas contas e funcionalidades personalizadas.
 - **Histórico de Buscas**: Armazena e exibe um histórico das buscas realizadas pelos usuários após o login.
+
+## Utilização
+
+1. Acesse a Página Principal
+    * Abra localhost:40000/home em um navegador web.
+2. Faça buscas referentes a identificação de fabricantes, apartir do Mac
+    * Exemplo: 00:15:00:A1:C1 ou 00-15-00-A1-C1
+3. Deseja salvar as buscas? 
+    * Realize o cadastro /cadastro
+4. Acesse o login
+    * Abra a página /login
+5. Mensagens de erro
+    * Caso acesse com as credencias incorretas, mensagens de erro será exibida. 
 
 ## Links:
 * [Descrição do Projeto](https://ifpb.github.io/dw/project/)

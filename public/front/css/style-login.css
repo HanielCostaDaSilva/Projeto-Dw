@@ -5,37 +5,36 @@ body, h1, h2, ul, li, input, section {
     box-sizing: border-box;
 }
 
-/* Estilo global do body */
 body {
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #1e1e1e; /* Tom escuro para o fundo */
-    color: #e0e0e0; /* Texto em cinza claro para contraste */
+    background-color: #2C3E50; /* Azul escuro */
+    color: #ECF0F1; /* Texto branco gelo */
     line-height: 1.6;
     background-size: cover; 
     background-position: center;
-}
-
+  }
+  
 /* Seção centralizada com leve transparência */
 section {
     background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
-    color: #fff;
+    color: #ECF0F1; /* Texto branco gelo */
     width: 500px;
-    margin: 250px auto;
+    margin: 250px auto; /* Manter margem para centralização */
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
 }
 
 /* Cabeçalhos */
 header h2 {
     text-align: center;
-    font-size: 1.7em;
+    font-size: 2em;
     font-weight: bold;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
-    color: #009879; /* Mesma cor usada na tabela */
+    color: #27AE60; /* Verde vibrante */
 }
 
 /* Labels visuais */
@@ -43,38 +42,30 @@ header h2 {
     margin-left: 10px;
     font-weight: bold;
     font-size: 20px;
-    color: #009879; /* Cor verde usada para coesão */
+    color: #ECF0F1; /* Texto branco gelo */
 }
 
 /* Campos de input */
 #password, #mail {
     margin-top: 12px;
     border-radius: 4px;
-    width: 450px;
-    margin-left: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.633); /* Sombra leve */
-    font-size: 20px;
+    width: 100%; /* Ajusta a largura para ocupar todo o espaço */
     padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #333; /* Fundo escuro */
-    color: #e0e0e0; /* Texto claro para contraste */
-}
-
-/* Texto da senha */
-.pass {
-    margin-top: 12px;
-    color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    background-color: #BDC3C7; /* Fundo claro */
+    color: #2C3E50; /* Texto azul escuro */
 }
 
 /* Botão de envio */
 #but {
     display: block;
     margin: 20px auto;
-    width: 12rem;
+    font-size: 16px;
+    width: 100%; /* Ocupa toda a largura */
     height: 3rem;
     border-radius: 4px;
-    font-size: 16px;
-    background-color: #007BFF; /* Azul padrão */
+    background-color: #27AE60; /* Verde vibrante */
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -82,8 +73,7 @@ header h2 {
 }
 
 #but:hover {
-    background-color: #0056b3; /* Azul mais escuro no hover */
-    color: black; /* Texto preto no hover */
+    background-color: #1E8449; /* Verde mais escuro */
 }
 
 /* Checkbox */
@@ -97,13 +87,13 @@ header h2 {
     display: block;
     text-align: center;
     text-decoration: none;
-    color: #009879; /* Verde em sinergia com a tabela */
+    color: #27AE60; /* Verde vibrante */
     margin-top: 20px;
     font-size: 1.1em;
 }
 
 #link-cadastro:hover {
-    color: #ff9800; /* Laranja vibrante no hover */
+    color: #F39C12; /* Laranja vibrante no hover */
 }
 
 /* Estilo da navbar */
@@ -118,10 +108,8 @@ header h2 {
 .navbar {
     display: flex;
     align-items: flex-start;
-    justify-content: flex-end;
-    float: right;
+    justify-content: flex-start;
     width: 700px;
-    height: 200px;
 }
 
 /* Logo */
@@ -129,7 +117,7 @@ header h2 {
     text-decoration: none;
     font-size: 32px;
     font-weight: bold;
-    color: white;
+    color: #ECF0F1; /* Texto branco gelo */
     margin-left: 15px;
     text-align: center;
 }
@@ -140,22 +128,17 @@ header h2 {
     margin-left: 20px;
 }
 
-div ul li:hover {
-    transition: 1s;
-    font-size: 22px;
-}
-
 /* Links da navbar */
 .navbar ul li a {
     padding: 10px 20px;
     border-radius: 30px;
     transition: 0.5s; /* Ajustado para uma transição mais rápida */
     text-decoration: none;
-    color: white;
+    color: #ECF0F1; /* Texto branco gelo */
     cursor: pointer;
 }
 
 .navbar ul li a:hover {
-    color: #ff9800; /* Laranja no hover */
+    color: #F39C12; /* Laranja no hover */
     background-color: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente no hover */
 }

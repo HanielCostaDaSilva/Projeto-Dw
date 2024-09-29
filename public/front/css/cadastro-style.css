@@ -11,7 +11,6 @@ body {
   background-color: #2C3E50; /* Azul escuro */
   color: #ECF0F1; /* Texto branco gelo */
   line-height: 1.6;
-  background-image: url(./space.jpg);
   background-size: cover; 
   background-position: center;
 }
@@ -96,7 +95,7 @@ section div {
 .navbar {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-bottom: 20px;
 }
 

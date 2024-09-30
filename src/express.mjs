@@ -16,7 +16,6 @@ const port = 40000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PUBLIC = path.join(__dirname, '../public/front/');
-const USERS_FILE_PATH = path.join(__dirname, '../src/database/seeders.json'); 
 
 app.use(cors());
 app.use(express.static(path.join(__dirname, '../public/front/')));

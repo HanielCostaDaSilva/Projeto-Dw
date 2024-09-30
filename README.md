@@ -10,16 +10,16 @@
 
 ## Estrutura do Projeto
 ```
-/Raíz \
-  ├── /public             # Contém os arquivos de front-end (HTML, CSS, JS, imagens) \
-  │     ├── /html         # Arquivos HTML que representam as páginas da aplicação \
-  │     ├── /css          # Arquivos de estilo (CSS) para estilizar as páginas \
-  │     ├── /js           # Scripts JavaScript para manipulação de front-end \
-  │     ├── /images       # Imagens utilizadas no front-end \
-  ├── /src                # Diretório de código-fonte do back-end \
-  │     ├── /database     # Scripts relacionados ao banco de dados, incluindo seeders \
-  │     └── express.mjs   # Arquivo principal que configura o servidor Express.js \
-  ├── package.json        # Arquivo de dependências e scripts NPM \
+/Raíz 
+  ├── /public             # Contém os arquivos de front-end (HTML, CSS, JS, imagens) 
+  │     ├── /html         # Arquivos HTML que representam as páginas da aplicação 
+  │     ├── /css          # Arquivos de estilo (CSS) para estilizar as páginas 
+  │     ├── /js           # Scripts JavaScript para manipulação de front-end 
+  │     ├── /images       # Imagens utilizadas no front-end 
+  ├── /src                # Diretório de código-fonte do back-end 
+  │     ├── /database     # Scripts relacionados ao banco de dados, incluindo seeders 
+  │     └── express.mjs   # Arquivo principal que configura o servidor Express.js 
+  ├── package.json        # Arquivo de dependências e scripts NPM 
   └── package-lock.json   # Arquivo gerado automaticamente para bloquear as versões dos pacotes 
 ```
 ## Descrição do Projeto:

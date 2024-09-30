@@ -29,8 +29,8 @@ Este projeto visa desenvolver um site para a pesquisa de endereços MAC. O siste
     * Um servidor local (por exemplo o Node.js ou live Server) para ter acesso as páginas HTML e a API de autenticação.
 
 ## Instalação
-    * Clone este repositório - git clone [url]
-    * Instale todas as dependências - npm install morgan prisma express cors
+    * Clone este repositório - git clone [url_do_repositorio]
+    * Instale todas as dependências - npm install morgan prisma express cors bcrypt
     * Inicialize o servidor - npm run dev
 
 ## Funcionalidades:

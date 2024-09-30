@@ -9,7 +9,7 @@
 * Júlio Cézar :boy:
 
 ## Estrutura do Projeto
-
+```
 /Raíz \
   ├── /public             # Contém os arquivos de front-end (HTML, CSS, JS, imagens) \
   │     ├── /html         # Arquivos HTML que representam as páginas da aplicação \
@@ -21,7 +21,7 @@
   │     └── express.mjs   # Arquivo principal que configura o servidor Express.js \
   ├── package.json        # Arquivo de dependências e scripts NPM \
   └── package-lock.json   # Arquivo gerado automaticamente para bloquear as versões dos pacotes 
-
+```
 ## Descrição do Projeto:
 Este projeto visa desenvolver um site para a pesquisa de endereços MAC. O sistema permitirá aos usuários buscar informações sobre o fabricante associado a um endereço MAC específico. Além disso, os usuários poderão se logar no sistema e salvar um histórico de suas buscas para futuras referências.
 

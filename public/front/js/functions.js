@@ -1,20 +1,3 @@
-async function verifica_existencia(email) {
-    try {
-        const response = await fetch('/data/users');
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        const users = data; // Acessar a lista de usuários
-        return users.some(user => user.email === email);
-    } catch (error) {
-        console.error('Erro ao verificar existência do email:', error);
-        return false;
-    }
-}
-
 let conteudo = document.getElementById('resultado');
 let pesquisado = document.getElementById('pesquisado');
 let historico = document.getElementById("resultados");
@@ -110,28 +93,36 @@ async function entrar() {
 
     if (email && senha) {
         try {
-            const response = await fetch('/data/users');
-            
+            const response = await fetch('/login', {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, senha })
+            });
+            if (response.status === 401){
+                alert('Usuário ou Senha Inválidos!')
+            }
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-
+        
             const data = await response.json();
-            const users = data; // Acessar a lista de usuários
-            const user = users.find(user => user.email === email && user.senha === senha);
-            if (user) {
-                window.localStorage.setItem('userId', user.id);
-                window.location.href = `../html/page_user.html?id=${user.id}`; // User-page/page_user.html
+
+            if (data.userId) {
+                window.localStorage.setItem('userId', data.userId);
+                window.location.href = `../html/page_user.html?id=${data.userId}`; // Redireciona para a página do usuário
             } else {
                 alert('Usuário ou senha inválidos!');
             }
         } catch (error) {
-            console.error('Erro:', error);
+            console.log('Erro: ', error)
         }
     } else {
         alert('Preencha todos os campos!');
     }
 }
+
 
 function user_info(id) {
     let user = document.getElementById("userName");
@@ -165,12 +156,6 @@ async function cadastrar() {
         return;
     }
 
-    const emailExiste = await verifica_existencia(email);
-    if (emailExiste) {
-        alert('Email Já Está Cadastrado!');
-        return;
-    }
-
     const new_user = {
         "nome": nome,
         "email": email,
@@ -186,16 +171,14 @@ async function cadastrar() {
             },
             body: JSON.stringify(new_user)
         });
-
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-
+        
         alert('Usuário cadastrado com sucesso!');
-        document.location.href = 'http://localhost:40000/login'; 
     } catch (error) {
         console.error('Erro ao cadastrar usuário:', error);
+        
     }
 }
-
 

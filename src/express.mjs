@@ -1,11 +1,13 @@
 import express from 'express';
-import morgan from 'morgan';
 import path from 'path';
+import morgan from 'morgan'
 import { fileURLToPath } from 'url';
-import fs from 'fs/promises';
 import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
- 
+import { getMac } from './controllers/macController.mjs'
+import { getUser, insertResult, loadHistory } from './controllers/userController.mjs';
+import { registerUser, login } from './auth/users.mjs';
+
 const prisma = new PrismaClient();
 const app = express();
 const url = '/:action';
@@ -31,75 +33,13 @@ app.get('/data/users', async (req, res) => {
     }
 });
 
-app.get('/data/macs', async (req, res) => {
-    try { 
-        const macs = await prisma.mac.findMany();
-        res.json(macs);
-    } catch (error) {
-        res.status(500).json({ error: "Macs Not Found" });
-    }
-});
+app.get('/data/macs', getMac);
 
-app.get('/data/users/:id', async (req, res) => {
-    const userId = req.params.id;
-    
-    try {
-        const user = await prisma.user.findUnique({
-            where: { id: userId },
-        });
-        
-        if (user) {
-            res.json(user);
-        } else {
-            res.status(404).send('Usuário não encontrado');
-        }
-    } catch (err) {
-        console.error('Erro ao buscar o usuário:', err);
-        res.status(500).send('Erro interno do servidor');
-    }
-});
+app.get('/data/users/:id', getUser);
 
-app.post('/data/users/:id/history', async (req, res) => {
-    const userId = req.params.id;
-    const { pesquisa } = req.body;
+app.post('/data/users/:id/history', insertResult );
 
-    try {
-        const user = await prisma.user.findUnique({
-            where: { id: userId }
-        });
-
-        if (!user) {
-            return res.status(404).json({ error: "Usuário não encontrado" });
-        }
-
-        const newHistory = await prisma.history.create({
-            data: {
-                entry: pesquisa, 
-                userId: userId
-            }
-        });
-
-        res.status(200).json(newHistory);
-    } catch (error) {
-        console.error('Erro ao adicionar ao histórico:', error);
-        res.status(500).json({ error: "Erro ao adicionar ao histórico" });
-    }
-});
-
-app.get('/data/users/:id/history', async (req, res) => {
-    const userId = req.params.id;
-    try {
-        const history = await prisma.history.findMany({
-            where: { userId: userId },
-            orderBy: { createdAt: 'desc' } 
-        });
-
-        res.status(200).json({ history });
-    } catch (error) {
-        console.error('Erro ao obter o histórico do usuário:', error);
-        res.status(500).json({ error: "Erro ao obter o histórico do usuário" });
-    }
-});
+app.get('/data/users/:id/history', loadHistory );
 
 
 app.get(url, (req, res) => {
@@ -127,21 +67,8 @@ app.get(url, (req, res) => {
     }
 });
 
-app.post('/data/users', async (req, res) => {
-    const { nome, email, senha } = req.body;
-
-    try {
-        const newUser = await prisma.user.create({
-            data: { nome, email, senha },
-        });
-
-        res.status(201).json(newUser);
-    } catch (err) {
-        console.error('Erro ao cadastrar usuário:', err);
-        res.status(500).send('Erro interno do servidor');
-    }
-});
-
+app.post('/data/users', registerUser );
+app.post('/login', login );
 
 app.listen(port, () => {
     console.log('Servidor rodando na porta:', port);
